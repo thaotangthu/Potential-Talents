@@ -1,4 +1,3 @@
-This project is to predict how fit the candidate is based on their available information (job title and the number of connection on Linkedin), 
-utilizing Doc2Vec, BERT, ELMo embeddings and Learning to Rank model. By calculating the similarity score based on the embeddings of the desired 
-job query and job title, scaling the number of connection, and then starring top 10 fittest applicants, LGBMRanker will be deployed to predict 
-their ranking using the metric ndcg score.
+This project features how to rank job applicants based on a fitness score - the weighted sum of similarity score and scaled connection - based on 3 kinds of embeddings (Doc2Vec, BERT, and ELMo). After starring some (or top 10) candidates as the fittest ones, a learning-to-rank model with features including 3 similarity scores and scaled connection will re-rank and evaluate the top 10 resulting positions based on the metric ndcg score. And with the custom randomized search cv, we have found the best learning-to-rank model with ndcg score = 1.0 on both train and test sets.
+
+**Room for improvement:** we can filter out candidates who in the first place should not be in this list by setting a threshold for the similarity score between the job title and the query. For example, after sorting and considering the relevance between the bottom job titles and the query, we can determine a cut-off point such that a candidate will be considered potentially fit if their similarity score is >= 0.5 or even >= 0.6.
