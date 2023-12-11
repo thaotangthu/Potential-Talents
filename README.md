@@ -1,4 +1,4 @@
 This project features how to rank job applicants based on a fitness score - the weighted sum of similarity score and scaled connection - based on 3 kinds of embeddings (Doc2Vec, BERT, and ELMo). After starring some (or top 10) candidates as the fittest ones, a learning-to-rank model with features including 3 similarity scores and scaled connection will re-rank and evaluate the top 10 resulting positions based on the metric ndcg score. And with the custom randomized search cv, the best learning-to-rank model with ndcg score = 1.0 on both train and test sets was found.
 
-### Room for improvement:
+#### Room for improvement:
 We can filter out candidates who in the first place should not be in this list by setting a threshold for the similarity score between the job title and the query. For example, after sorting and considering the relevance between the bottom job titles and the query, we can determine a cut-off point such that a candidate will be considered potentially fit if their similarity score is >= 0.5 or even >= 0.6.
